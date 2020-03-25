@@ -105,8 +105,8 @@ def build_model():
         #    {'text_pipeline': 1},# 'starting_verb': 0.5},
         #    {'text_pipeline': 0.5},# 'starting_verb': 1},
         #    {'text_pipeline': 0.8}# 'starting_verb': 1},
-        #)
-    }
+        #    )
+        #}
 
     # parameter discription:
     #n_estimators = number of trees in the foreset
@@ -128,9 +128,51 @@ def build_model():
     return model
 
 
+def display_results(y_te, y_pr):
+
+    labels = np.unique(y_pr)
+    confusion_mat = confusion_matrix(y_te, y_pr, labels=labels)
+    accuracy = (y_pr == y_te).mean()
+    report = classification_report(y_te, y_pr)
+
+    print("Labels:", labels)
+    print("Confusion Matrix:\n", confusion_mat)
+    print("Accuracy:", accuracy)
+    print("\n")
+    print('Sklearn Classification Report:')
+    print(report)
+
+
 def evaluate_model(model, X_test, Y_test, df):
     y_pred = model.predict(X_test)
     model_probs = model.predict_proba(X_test)
+
+
+    #print scores for each category:
+    for category in range(0,y_pred.shape[1]):
+        y_pr = y_pred[:,category]
+        y_te = Y_test[:,category]
+        print('Category: ' + str(df.columns[4+category]))
+        display_results(y_te, y_pr)
+
+            '''
+            #output will look like this:
+            Category: death
+            Labels: [0 1]
+            Confusion Matrix:
+            [[4946   12]
+            [ 185   63]]
+            Accuracy: 0.9621590472531695
+
+            Sklearn Classification Report:
+                      precision    recall  f1-score   support
+                      0       0.96      1.00      0.98      4958
+                      1       0.84      0.25      0.39       248
+            accuracy                              0.96      5206
+            macro avg         0.90      0.63      0.69      5206
+            weighted avg      0.96      0.96      0.95      5206
+            '''
+
     return y_pred, model_probs
 
 
