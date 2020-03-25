@@ -1,15 +1,18 @@
 # Disaster Response Pipeline Project
 
 ### Description:
-# Final Pipeline to classifiy Disaster Response Messages
+##### Final Pipeline to classifiy Disaster Response Messages
 
 This projects consists of an ETL Pipeline and an ML Pipeline.
 - The **ETL** part uses two CSV files and outputs a cleaned df and saves to an SQL database.
 - The **ML pipeline** loads from the SQL database, initializes independent (X) and dependent variables (y),
 does a train-test-split and then uses a multioutput randomforest classifier together with a TF-IDF transformer to classify 'disaster response messages' in 36 categories, e.g. "aid_related", "search_and_rescue", "food" or "water.
+- The ML pipeline also used a GridSearchCV to find the best parameters, this is hidden as comment in the code
+- The pickle file is not included in the repositoriy due to file size, but can be generated with train_classifier.py
 
-# Data from:
+##### Data from:
 https://www.figure-eight.com/dataset/combined-disaster-response-data/
+
 
 
 ### Instructions:
