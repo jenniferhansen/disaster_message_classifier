@@ -15,16 +15,10 @@ https://www.figure-eight.com/dataset/combined-disaster-response-data/
 
 Example message (english translation): "Is the Hurricane over or is it not over"
 
-Message raw data: 26248 rows:
+Message raw data: 26248 rows
 
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 26248 entries, 0 to 26247
-Data columns (total 4 columns):
-id          26248 non-null int64
-message     26248 non-null object
-original    10184 non-null object
-genre       26248 non-null object
 dtypes: int64(1), object(3)
+
 memory usage: 820.3+ KB
 
 
