@@ -88,6 +88,43 @@ def build_model():
         clf__estimator__min_samples_split = 2, #2 #min_samples_split = min number of data points placed in a node before the node is split
     )
 
+
+    # specify parameters for grid search
+    #parameters = {
+        #'vect__ngram_range': ((1, 1), (1, 2)),
+        #'vect__max_df': (0.5, 0.75, 1.0),
+        #'vect__max_features': (None, 5000, 10000),
+        #'tfidf__use_idf': (True, False),
+        #'clf__estimator__n_estimators': [10, 50, 100],  #n_estimators = number of trees in the foreset
+        #'clf__estimator__min_samples_split': [2, 3, 4], #min_samples_split = min number of data points placed in a node before the node is split
+        #'clf__estimator__max_features': [20,30,35],     #max number of features considered for splitting a node
+        #'clf__estimator__max_depth': [5,20,50],         #max number of levels in each decision tree
+        #'clf__estimator__min_samples_leaf': [],         #min number of data points allowed in a leaf node
+        #'clf__estimator__bootstrap': [],                #method for sampling data points (with or without replacement)
+        #'transformer_weights': (
+        #    {'text_pipeline': 1},# 'starting_verb': 0.5},
+        #    {'text_pipeline': 0.5},# 'starting_verb': 1},
+        #    {'text_pipeline': 0.8}# 'starting_verb': 1},
+        #)
+    }
+
+    # parameter discription:
+    #n_estimators = number of trees in the foreset
+    #min_samples_split = min number of data points placed in a node before the node is split
+    #max number of features considered for splitting a node
+    #max number of levels in each decision tree
+    #min number of data points allowed in a leaf node
+    #method for sampling data points (with or without replacement)
+    #max_features = max number of features considered for splitting a node
+    #max_depth = max number of levels in each decision tree
+    #min_samples_leaf = min number of data points allowed in a leaf node
+    #bootstrap = method for sampling data points (with or without replacement)
+
+
+    # create grid search object
+    #cv = GridSearchCV(model, param_grid=parameters)
+    #return cv
+
     return model
 
 
