@@ -66,18 +66,24 @@ def index():
                 Bar(
                     y=categories,
                     x=counts,
-                    orientation='h'
+                    orientation='h',
+                    width=0.9
                 )
             ],
 
             'layout': {
                 'title': '36 Categories of Disaster Messages',
                 'yaxis': {
-                    'title': "Categories"
+                    'title': "Categories",
+                    'dtick': 1
                 },
                 'xaxis': {
                     'title': "Count"
-                }
+                },
+                'margin':{
+                    'l': 180
+                }   
+                
             }
         },
         {
